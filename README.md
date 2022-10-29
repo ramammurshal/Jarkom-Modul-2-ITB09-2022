@@ -144,3 +144,60 @@ Lalu testing pada server client `SSS`:
 ![Testing pada server client sss soal 5](./images/soal-5/d-testing-from-wise.PNG)
 
 ## Soal 6
+Karena banyak informasi dari Handler, buatlah subdomain yang khusus untuk operation yaitu operation.wise.yyy.com dengan alias www.operation.wise.yyy.com yang didelegasikan dari WISE ke Berlint dengan IP menuju ke Eden dalam folder operation.
+
+### Pembahasan Soal 6
+Pada server `Wise`, lakukan konfigurasi pada file `/etc/bind/wise/wise.itb09.com` menjadi sebagai berikut:
+
+![Wise itb09 com soal 6](./images/soal-6/a-wise-itb09-com.PNG)
+
+Kemudian edit file `/etc/bind/named.conf.options` dan comment `dnssec-validation auto;` dan tambahkan baris berikut:
+
+```
+allow-query{any;};  
+```
+
+Kemudian edit file `/etc/bind/named.conf.local` menjadi seperti berikut:
+
+![Named conf local wise soal 6](./images/soal-6/b-name-conf-local-wise.PNG)
+
+Pada server `Berlint`, pertama-tama kita edit file `/etc/bind/named.conf.options` dengan meng-comment `dnssec-validation auto;` dan menambahkan baris berikut:
+
+```
+allow-query{any;};
+```
+
+Kemudian edit file `/etc/bind/named.conf.local` untuk delegasi `operation`.
+
+![Named conf local berlint soal 6](./images/soal-6/c-named-conf-local-berlint.PNG)
+
+Kemudian lakukan konfigurasi pada file `/etc/bind/operation/operation.wise.itb09.com` sehingga menjadi seperti berikut:
+
+![Operation file berlint soal 6](./images/soal-6/d-operation-wise.PNG)
+
+Lalu, restart server `Berlint` menggunakan `service bind9 restart`.
+
+Kemudian kita lakukan testing melalui server `SSS`
+
+![Testing operation wise itb09 com](./images/soal-6/e-testing-operation.PNG)
+
+![Testing www operation wise itb09 com](./images/soal-6/f-testing-www-operation.PNG)
+
+## Soal 7
+Untuk informasi yang lebih spesifik mengenai Operation Strix, buatlah subdomain melalui Berlint dengan akses strix.operation.wise.yyy.com dengan alias www.strix.operation.wise.yyy.com yang mengarah ke Eden.
+
+### Pembahasan Soal 7
+Kita langsung lakukan konfigurasi pada `/etc/bind/operation/operation.wise.itb09.com` menjadi:
+
+![Operation wise itb09 for strix](./images/soal-7/a-operation-wise.PNG)
+
+Kemudian kita restart server `Berlint` menggunakan command `service bind9 restart`.
+
+Lalu, kita lakukan testing pada client `SSS`.
+
+![Testing strix](./images/soal-7/b-testing-strix.PNG)
+
+![Testing www strix](./images/soal-7/c-testing-www-strix.PNG)
+
+## Soal 8
+Setelah melakukan konfigurasi server, maka dilakukan konfigurasi Webserver. Pertama dengan webserver www.wise.yyy.com. Pertama, Loid membutuhkan webserver dengan DocumentRoot pada /var/www/wise.yyy.com.
