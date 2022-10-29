@@ -1,0 +1,20 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+// Config no 5 (Berlint as DNS Slave)
+zone "wise.itb09.com" {
+    type slave;
+    masters { 10.49.3.2; }; // WISE IP
+    file "/var/lib/bind/wise.itb09.com";
+};
+
+// Config no 6
+zone "operation.wise.itb09.com"{
+        type master;
+        file "/etc/bind/operation/operation.wise.itb09.com";
+};

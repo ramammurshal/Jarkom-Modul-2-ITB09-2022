@@ -1,0 +1,26 @@
+// Basic config
+//zone "wise.itb09.com" {
+//    type master;
+//    file "/etc/bind/wise/wise.itb09.com";
+//};
+
+// Config no 5
+// zone "wise.itb09.com" {
+//    type master;
+//    notify yes;
+//    also-notify { 10.49.2.2; }; // Berlint IP
+//    allow-transfer { 10.49.2.2; }; // Berlint IP
+//    file "/etc/bind/wise/wise.itb09.com";
+//};
+
+// Config no 6
+zone "wise.itb09.com" {
+    type master;
+    allow-transfer { 10.49.2.2; }; // Berlint IP
+    file "/etc/bind/wise/wise.itb09.com";
+};
+
+zone "3.49.10.in-addr.arpa" {
+    type master;
+    file "/etc/bind/wise/3.49.10.in-addr.arpa";
+    
