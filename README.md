@@ -201,3 +201,10 @@ Lalu, kita lakukan testing pada client `SSS`.
 
 ## Soal 8
 Setelah melakukan konfigurasi server, maka dilakukan konfigurasi Webserver. Pertama dengan webserver www.wise.yyy.com. Pertama, Loid membutuhkan webserver dengan DocumentRoot pada /var/www/wise.yyy.com.
+
+### Pembahasan Soal 8
+Pertama-tama, pastikan bahwa Web Server `apache` sudah terinstall pada server `Eden`. Pastikan juga terminal browser `Lynx` sudah terinstall pada client `SSS` dan `Garden`.
+
+Kemudian, pada server `Eden`, buat sebuah file pada `wise.itb09.com.conf` pada `/etc/apache2/sites-available`. Document root akan diletakkan pada `/var/www/wise.itb09.com`. Tak lupa pula untuk menambahkan `ServerName` dan `ServerAlias`.
+
+![Gambar sites-available wise.itb09.com](./images/soal-8/)
