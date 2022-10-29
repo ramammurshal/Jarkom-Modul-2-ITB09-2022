@@ -208,3 +208,6 @@ Pertama-tama, pastikan bahwa Web Server `apache` sudah terinstall pada server `E
 Kemudian, pada server `Eden`, buat sebuah file pada `wise.itb09.com.conf` pada `/etc/apache2/sites-available`. Document root akan diletakkan pada `/var/www/wise.itb09.com`. Tak lupa pula untuk menambahkan `ServerName` dan `ServerAlias`.
 
 ![Gambar sites-available wise.itb09.com](./images/soal-8/a-sites-available-wise.PNG)
+
+## Kendala
+Terdapat error saat running domain `wise.itb09.com` dari lynx server `SSS` sehingga tidak dapat melanjutkan ke nomor berikutnya.
